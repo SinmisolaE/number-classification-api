@@ -9,6 +9,8 @@ CORS(app, resources={r"/api/classify-number": {"origins": "*"}})
 
 def is_armstrong_number(n):
     """ Checks if a number is an armstrong number. returns with true or false"""
+    if n < 0:
+        return False
     digits = [int(digit) for digit in str(n)]
     num_digits = len(digits)
     armstrong_sum = sum([digit ** num_digits for digit in digits])
@@ -16,6 +18,8 @@ def is_armstrong_number(n):
 
 def is_perfect(n):
     """Checks if a number is a perfect number. Returns true or false"""
+    if n < 1:
+        return False
     divisors = [i for i in range(1, n) if n % i == 0]
     return sum(divisors) == n
 
