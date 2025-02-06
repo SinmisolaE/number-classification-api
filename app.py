@@ -35,8 +35,10 @@ def number_classify():
     """ returns mathematical properties about a passed number along with a fun fact"""
     number = request.args.get("number")
 
-    # instance when not a 
-    if not number or not number.isdigit():
+    # instance when not a number
+    try:
+        number = int(number)  # Convert string to integer
+    except ValueError:
         return jsonify({"number": number, "error": True}), 400  
 
     fun_fact = requests.get(f"http://numbersapi.com/{number}/math").text
