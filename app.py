@@ -31,7 +31,7 @@ def is_prime(n):
 
 def cal_sum(n):
     """ Calculates and returns the sum of the digits of a number"""
-    return sum([int(digit) for digit in str(n)])
+    return sum([int(digit) for digit in str(abs(n))])
 
 
 @app.route("/api/classify-number", methods=['GET'])
